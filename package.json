@@ -1,0 +1,28 @@
+{
+  "name": "unity-n-ui",
+  "version": "0.0.1",
+  "description": "UI helper scripts",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shadowmint/unity-n-ui.git"
+  },
+  "files": [
+    "index.js",
+    "scripts",
+    "src"
+  ],
+  "author": "douglas.linder@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shadowmint/unity-n-ui/issues"
+  },
+  "homepage": "https://github.com/shadowmint/unity-n-ui",
+  "scripts": {
+    "postinstall": "node scripts/postinstall.js"
+  },
+  "dependencies": {
+    "ncp": "^2.0.0",
+    "mkdirp": "^0.5.1"
+  }
+}
