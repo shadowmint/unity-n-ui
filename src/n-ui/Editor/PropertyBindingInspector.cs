@@ -1,8 +1,5 @@
-using UnityEngine;
+using N.Package.Core;
 using UnityEditor;
-using System.Collections.Generic;
-using System;
-using N;
 using N.UI.Tools;
 
 namespace N.Package.UI {
@@ -48,7 +45,7 @@ namespace N.Package.UI {
       // If the component changed, repopulate the property list.
       EditorGUILayout.BeginHorizontal();
       if (new_target_component) {
-        N.Console.Log(selectTargetComponent.component);
+        Console.Log(selectTargetComponent.component);
         selectTargetProperty.bind(selectTargetComponent.component);
       }
       var new_target_property = selectTargetProperty.update();

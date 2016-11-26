@@ -1,8 +1,4 @@
-using UnityEngine;
-using UnityEditor;
-using System.Collections.Generic;
-using System;
-using N;
+using N.Package.Core.Reflect;
 
 namespace N.UI.Tools {
 
@@ -22,7 +18,7 @@ namespace N.UI.Tools {
     public void bind(System.Object obj) {
       if (target != obj) {
         options.Clear();
-        foreach (var f in N.Reflect.Type.Fields(obj)) {
+        foreach (var f in Type.Fields(obj)) {
           options.Add(f);
         }
       }
