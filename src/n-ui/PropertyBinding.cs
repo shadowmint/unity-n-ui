@@ -1,5 +1,5 @@
 using UnityEngine;
-using N.Tests;
+using N.Package.Core.Tests;
 using N;
 
 namespace N.Package.UI {
@@ -24,16 +24,16 @@ namespace N.Package.UI {
     public PropertyInfo info;
 
     /// Actual property references
-    private N.Reflect.Prop sourceProp = null;
-    private N.Reflect.Prop targetProp = null;
+    private N.Package.Core.Reflect.Prop sourceProp = null;
+    private N.Package.Core.Reflect.Prop targetProp = null;
     private Component sourceCmp = null;
     private Component targetCmp = null;
     private bool ready = false;
 
     /// Resolve source and target property instances
     public void Start() {
-      var sp = N.Reflect.Type.Field(info.sourceComponent, info.sourceProperty);
-      var tp = N.Reflect.Type.Field(info.targetComponent, info.targetProperty);
+      var sp = N.Package.Core.Reflect.Type.Field(info.sourceComponent, info.sourceProperty);
+      var tp = N.Package.Core.Reflect.Type.Field(info.targetComponent, info.targetProperty);
       if (sp.IsSome && tp.IsSome) {
         sourceProp = sp.Unwrap();
         sourceCmp = source.GetComponent(sourceProp.Type);
@@ -43,10 +43,10 @@ namespace N.Package.UI {
       }
       else {
         if (tp.IsNone) {
-          N.Console.Log(string.Format("Property Binding {0}.{1} on {2} is not valid", info.targetComponent, info.targetProperty, gameObject));
+          N.Package.Core.Console.Log(string.Format("Property Binding {0}.{1} on {2} is not valid", info.targetComponent, info.targetProperty, gameObject));
         }
         if (sp.IsNone) {
-          N.Console.Log(string.Format("Property Binding {0}.{1} on {2} is not valid", info.sourceComponent, info.sourceProperty, gameObject));
+          N.Package.Core.Console.Log(string.Format("Property Binding {0}.{1} on {2} is not valid", info.sourceComponent, info.sourceProperty, gameObject));
         }
       }
     }

@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-using N.Tests;
+using N.Package.Core.Tests;
 
 namespace N.Package.UI
 {
@@ -94,15 +94,15 @@ namespace N.Package.UI
             var ct = child.GetComponent<RectTransform>();
             var magic = ct.sizeDelta.y;
             pt.sizeDelta = pt.sizeDelta + new Vector2(0f, magic);
-            child.SetParent(self);
+            child.transform.SetParent(self.transform);
             ct.offsetMin = new Vector2(0f, -magic * offset);
             ct.offsetMax = new Vector2(0f, -magic * offset + magic);
         }
 
         /// Find Marker
-        public static Option<GameObject> Marker(this GameObject target, string name)
+        public static N.Package.Core.Option<GameObject> Marker(this GameObject target, string name)
         {
-            return N.Marker.Find(name, target);
+            return N.Package.Core.Marker.Find(name, target);
         }
 
         /// Add a click event to a button

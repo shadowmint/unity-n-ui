@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-using N;
+using N.Package.Core;
 using N.Package.UI;
 using System.Collections.Generic;
 
@@ -52,7 +52,7 @@ namespace N.Package.UI {
         Redraw();
       }
       else {
-        N.Console.Error("Failed to load UI targets");
+        Console.Error("Failed to load UI targets");
       }
     }
 
