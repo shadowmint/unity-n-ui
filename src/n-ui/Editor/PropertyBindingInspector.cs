@@ -1,8 +1,5 @@
-using UnityEngine;
+using N.Package.Core;
 using UnityEditor;
-using System.Collections.Generic;
-using System;
-using N;
 using N.UI.Tools;
 
 namespace N.Package.UI {
