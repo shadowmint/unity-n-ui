@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-using N.Package.Core.Tests;
+using N.Package.Core;
 
 namespace N.Package.UI
 {
@@ -112,30 +112,7 @@ namespace N.Package.UI
         if (replaceExistingEvents)
         {
           button.onClick.RemoveAllListeners();
-            var ct = child.GetComponent<RectTransform>();
-            var magic = ct.sizeDelta.y;
-            pt.sizeDelta = pt.sizeDelta + new Vector2(0f, magic);
-            child.transform.SetParent(self.transform);
-            ct.offsetMin = new Vector2(0f, -magic * offset);
-            ct.offsetMax = new Vector2(0f, -magic * offset + magic);
         }
-
-        /// Find Marker
-        public static N.Package.Core.Option<GameObject> Marker(this GameObject target, string name)
-        {
-            return N.Package.Core.Marker.Find(name, target);
-        }
-
-        /// Add a click event to a button
-        public static void AddClickEvent(this GameObject target, UnityEngine.Events.UnityAction callback, bool replaceExistingEvents = true)
-        {
-            var button = target.GetComponent<Button>();
-            if (button != null)
-            {
-                if (replaceExistingEvents)
-                {
-                    button.onClick.RemoveAllListeners();
-                }
         button.onClick.AddListener(callback);
       }
     }

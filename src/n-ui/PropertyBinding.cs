@@ -23,9 +23,6 @@ namespace N.Package.UI
     [Tooltip("The actual bound values")] public PropertyInfo info;
 
     /// Actual property references
-    private Prop sourceProp = null;
-
-    /// Actual property references
     private N.Package.Core.Reflect.Prop sourceProp = null;
     private N.Package.Core.Reflect.Prop targetProp = null;
     private Component sourceCmp = null;
@@ -37,25 +34,21 @@ namespace N.Package.UI
     {
       var sp = N.Package.Core.Reflect.Type.Field(info.sourceComponent, info.sourceProperty);
       var tp = N.Package.Core.Reflect.Type.Field(info.targetComponent, info.targetProperty);
-      if (sp.IsSome && tp.IsSome) {
+      if (sp.IsSome && tp.IsSome)
       {
         sourceProp = sp.Unwrap();
         sourceCmp = source.GetComponent(sourceProp.Type);
         targetProp = tp.Unwrap();
         targetCmp = GetComponent(targetProp.Type);
         ready = true;
-      }
-      else
-      {
+      } else {
         if (tp.IsNone)
         {
           N.Package.Core.Console.Log(string.Format("Property Binding {0}.{1} on {2} is not valid", info.targetComponent, info.targetProperty, gameObject));
-            info.targetProperty, gameObject));
         }
         if (sp.IsNone)
         {
           N.Package.Core.Console.Log(string.Format("Property Binding {0}.{1} on {2} is not valid", info.sourceComponent, info.sourceProperty, gameObject));
-            info.sourceProperty, gameObject));
         }
       }
     }
