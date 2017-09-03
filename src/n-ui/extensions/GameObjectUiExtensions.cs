@@ -102,7 +102,7 @@ namespace N.Package.UI
         /// Find Marker
         public static Option<GameObject> Marker(this GameObject target, string name)
         {
-            return N.Marker.Find(name, target);
+            return N.Package.Core.Marker.Find(name, target);
         }
 
         /// Add a click event to a button

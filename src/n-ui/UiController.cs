@@ -1,7 +1,5 @@
 using UnityEngine;
-using UnityEngine.UI;
-using N;
-using N.Package.UI;
+using N.Package.Core;
 using System.Collections.Generic;
 
 namespace N.Package.UI {
@@ -52,7 +50,7 @@ namespace N.Package.UI {
         Redraw();
       }
       else {
-        N.Console.Error("Failed to load UI targets");
+        Console.Error("Failed to load UI targets");
       }
     }
 
