@@ -1,5 +1,3 @@
-using N.Package.Core.Reflect;
-
 namespace N.UI.Tools {
 
   /// An editor drop down to pick a component from the parent game object
@@ -9,16 +7,20 @@ namespace N.UI.Tools {
     private System.Object target;
 
     /// Create a new instance
-    public EditorSelectProperty(string name, string value) : base(name, value) {
+    public EditorSelectProperty(string name, string value) : base(name, value)
+    {
       target = null;
     }
 
     /// Call this every update to ensure the gamae object is synced
     /// to the list of the components in the drop down.
-    public void bind(System.Object obj) {
-      if (target != obj) {
+    public void bind(System.Object obj)
+    {
+      if (target != obj)
+      {
         options.Clear();
-        foreach (var f in Type.Fields(obj)) {
+        foreach (var f in N.Package.Core.Reflect.Type.Fields(obj))
+        {
           options.Add(f);
         }
       }

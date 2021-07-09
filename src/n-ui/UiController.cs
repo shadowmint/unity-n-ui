@@ -1,11 +1,11 @@
 using UnityEngine;
-using System.Collections.Generic;
 using N.Package.Core;
+using System.Collections.Generic;
 
-namespace N.Package.UI
-{
-  public abstract class UiController : MonoBehaviour
-  {
+namespace N.Package.UI {
+
+  public abstract class UiController : MonoBehaviour {
+
     [Tooltip("Does the UI state need to be updated?")]
     public bool dirty = true;
 
@@ -21,29 +21,19 @@ namespace N.Package.UI
     /// Periodically update the UI
     public void Update()
     {
-      if (!initialized)
-      {
-        Init();
-      }
+      if (!initialized) Init();
       if (dirty)
       {
         Redraw();
-      }
-      else
-      {
+      } else {
         elapsed += Time.deltaTime;
-        if (elapsed > updateInterval)
-        {
-          dirty = true;
-        }
+        if (elapsed > updateInterval) dirty = true;
       }
       Pick();
     }
 
     /// Poll for raycast object picking
-    protected virtual void Pick()
-    {
-    }
+    protected virtual void Pick() { }
 
     /// Load all the tags we can find.
     /// Call this in Start() on the child class, as unity cannot resolve
@@ -56,9 +46,7 @@ namespace N.Package.UI
       {
         Setup(targets.Unwrap());
         Redraw();
-      }
-      else
-      {
+      } else {
         Console.Error("Failed to load UI targets");
       }
     }
@@ -68,10 +56,7 @@ namespace N.Package.UI
     {
       dirty = false;
       elapsed = 0f;
-      if (Ready())
-      {
-        Sync();
-      }
+      if (Ready()) Sync();
     }
 
     /// Run periodically and only start this UI once it returns true.
